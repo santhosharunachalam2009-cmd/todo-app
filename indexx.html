@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Student Task Manager</h1>
+      </div>
+      <button id="themeToggleBtn" class="theme-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <!-- App Main Body -->
+    <main class="app-main">
+      <!-- Input Section -->
+      <section class="card input-section">
+        <h2><i class="fa-solid fa-plus-circle"></i> Add New Task</h2>
+        <form id="taskForm">
+          <div class="form-group">
+            <input type="text" id="taskInput" placeholder="Enter task (e.g., Math Homework Ch. 4)..." required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="taskCategory">Category</label>
+              <select id="taskCategory">
+                <option value="Assignment">Assignment</option>
+                <option value="Exam Prep">Exam Prep</option>
+                <option value="Project">Project</option>
+                <option value="Reading">Reading</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="taskDueDate">Due Date</label>
+              <input type="date" id="taskDueDate" required />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i> Add Task
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Controls Section (Search & Filters) -->
+      <section class="controls-section">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search tasks by title or category..." />
+        </div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+      </section>
+
+      <!-- Stats Bar -->
+      <section class="stats-bar">
+        <span id="statTotal">Total: 0</span>
+        <span id="statPending">Pending: 0</span>
+        <span id="statCompleted">Completed: 0</span>
+      </section>
+
+      <!-- Task List Container -->
+      <section class="task-list-section">
+        <ul id="taskList" class="task-list"></ul>
+        <div id="emptyState" class="empty-state hidden">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <p>No tasks found. Time to relax or add a new task!</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
